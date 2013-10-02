@@ -2,6 +2,10 @@ App.Views.FBInit = Backbone.View.extend({
 
   template: _.template(App.Templates.FBInit),
 
+  events: {
+    'click #logoutButton': 'logoutUser'
+  },
+
   initialize: function() {
     $(function() {
       window.fbAsyncInit = function() {
@@ -37,6 +41,12 @@ App.Views.FBInit = Backbone.View.extend({
         });
       }
    });
+  },
+
+  logoutUser: function() {
+    FB.logout(function(response) {
+  // user is now logged out
+    });
   },
 
   render: function() {

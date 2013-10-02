@@ -1,0 +1,1 @@
+App.Templates.Letter = '<div><%= letter %></div>';

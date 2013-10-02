@@ -20,7 +20,7 @@ App.Models.Hangman = Backbone.Model.extend({
     this.letters = new App.Collections.Letters();
 
     for(var i = 0; i < this.gameWord.length; i++) {
-      this.letters.add(this.gameWord[i]);
+      this.letters.add({ letter: this.gameWord[i] });
     }
   }
 });

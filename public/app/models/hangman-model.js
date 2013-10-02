@@ -11,7 +11,6 @@ App.Models.Hangman = Backbone.Model.extend({
   },
 
   newGame: function() {
-    console.log(arguments);
     if(arguments[0] === 'lose') {
       alert('you lost');
     } else {

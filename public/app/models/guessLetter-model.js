@@ -1,7 +1,6 @@
 App.Models.GuessLetter = Backbone.Model.extend({
   initialize: function(params) {
     this.gameWord = params.gameWord;
-    console.log('gamewod', this.gameWord.gameWord, this.gameWord.gameWord.length);
     this.set('guessesLeft', 5);
     this.set('lettersLeft', this.gameWord.gameWord.length);
     this.gameWord.on('endGame', this.resetGuessAndLetterCount, this);
@@ -29,7 +28,6 @@ App.Models.GuessLetter = Backbone.Model.extend({
     if(!guessedRight) {
       this.set('guessesLeft', guessesLeft - 1);
     }
-    console.log('lettersleft',this.get('lettersLeft'));
     return [guessedRight, this.get('guessesLeft'), this.get('lettersLeft')];
   }
 });

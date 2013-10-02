@@ -7,6 +7,14 @@ App.Views.GuessLetter = Backbone.View.extend({
 
   captureLetter: function() {
     var letterGuessed = $('.inputGuess').val();
+    this.onlyOneLetter(letterGuessed);
+  },
+
+  onlyOneLetter: function(input) {
+    if(input.length !== 1) {
+      alert('need to enter one and only one letter');
+      return false;
+    }
   },
 
   render: function() {

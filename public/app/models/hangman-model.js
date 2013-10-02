@@ -8,13 +8,14 @@ App.Models.Hangman = Backbone.Model.extend({
   startGame: function() {
     this.pickName();
     this.splitName();
+    console.log(this);
   },
 
   newGame: function() {
     if(arguments[0] === 'lose') {
-      alert('you lost');
+      alert('you lost, the word was: ' + this.gameWord);
     } else {
-      alert('you won');
+      alert('you won!');
     }
     this.startGame();
   },

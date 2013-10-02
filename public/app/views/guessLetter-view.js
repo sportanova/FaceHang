@@ -3,6 +3,13 @@ App.Views.GuessLetter = Backbone.View.extend({
 
   events: {
     'click .submitGuess': 'captureLetter',
+    'keyup .inputGuess': 'caputureLetterOnEnter'
+  },
+
+  caputureLetterOnEnter: function(e) {
+    if(e.which === 13) {
+      this.captureLetter();
+    }
   },
 
   captureLetter: function() {

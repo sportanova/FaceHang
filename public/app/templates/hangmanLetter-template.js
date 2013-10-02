@@ -1,1 +1,1 @@
-App.Templates.Letter = '<div><%= letter %></div>';
+App.Templates.Letter = '<div class="letter"><%= letter %></div><div class="letterSpace">_</div> ';

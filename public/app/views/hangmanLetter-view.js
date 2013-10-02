@@ -1,5 +1,7 @@
 App.Views.Letter = Backbone.View.extend({
 
+  tagName: 'li',
+
   template: _.template(App.Templates.Letter),
 
   render: function() {

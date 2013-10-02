@@ -1,5 +1,6 @@
 App.Views.HangmanLetters = Backbone.View.extend({
   initialize: function() {
+    this.model.on('endGame', this.render, this);
   },
 
   tagName: 'ul',

@@ -6,7 +6,8 @@ App.Views.FBInit = Backbone.View.extend({
     'click #logoutButton': 'logoutUser'
   },
 
-  initialize: function() {
+  initialize: function(params) {
+    this.friendsCollection = params.friendsCollection;
     $(function() {
       window.fbAsyncInit = function() {
         FB.init({
@@ -17,7 +18,7 @@ App.Views.FBInit = Backbone.View.extend({
 
         FB.Event.subscribe('auth.authResponseChange', function(response) {
           if (response.status === 'connected') {
-            testAPI();
+            populateFriendsCollection();
           } else if (response.status === 'not_authorized') {
             FB.login();
           } else {
@@ -34,18 +35,16 @@ App.Views.FBInit = Backbone.View.extend({
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
 
-      function testAPI() {
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-          console.log('Good to see you, ' + response.name + '.');
+      function populateFriendsCollection() {
+        FB.api('/me/friends', function(response) {
+          console.log(response);
         });
       }
    });
   },
 
   logoutUser: function() {
-    FB.logout(function(response) {
-  // user is now logged out
+      FB.logout(function(response) {
     });
   },
 

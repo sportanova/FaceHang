@@ -8,6 +8,7 @@ App.Views.GuessLetter = Backbone.View.extend({
   captureLetter: function() {
     var letterGuessed = $('.inputGuess').val();
     this.onlyOneLetter(letterGuessed);
+    this.model.analyzeGuess(letterGuessed);
   },
 
   onlyOneLetter: function(input) {

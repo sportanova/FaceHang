@@ -15,3 +15,7 @@ ul li {
 .letter {
   display: none;
 }
+
+input {
+  margin: 20px 0 0 0;
+}

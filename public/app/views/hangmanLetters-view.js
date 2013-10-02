@@ -10,7 +10,7 @@ App.Views.Hangman = Backbone.View.extend({
         return new App.Views.Letter({ model: letter}).render().$el;
       })
     );
-    this.$el.append(new App.Views.GuessLetter());
+    this.$el.append(new App.Views.GuessLetter().render().$el);
     return this;
   }
 });

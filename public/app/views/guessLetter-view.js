@@ -36,6 +36,14 @@ App.Views.GuessLetter = Backbone.View.extend({
   revealCorrectLetters: function(guessedLetter) {
     guessedLetter = guessedLetter.toLowerCase();
 
+    var guessesLeft = this.model.get('guessesLeft');
+    var lettersLeft = this.model.get('lettersLeft');
+
+    lettersLength = this.model.get('gameWord').gameWord.length;
+
+    if(guessesLeft === 5 && lettersLeft === lettersLength) {
+      return false;
+    }
     $('.letter').each(function(index, letter) {
       var $this = $(this);
       var thisLetter = $this.text().toLowerCase();

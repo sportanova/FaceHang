@@ -4,6 +4,12 @@ App.Models.GuessLetter = Backbone.Model.extend({
     console.log('gamewod', this.gameWord.gameWord, this.gameWord.gameWord.length);
     this.set('guessesLeft', 5);
     this.set('lettersLeft', this.gameWord.gameWord.length);
+    this.gameWord.on('endGame', this.resetGuessAndLetterCount, this);
+  },
+
+  resetGuessAndLetterCount: function() {
+    this.set('guessesLeft', 5);
+    this.set('lettersLeft', this.gameWord.gameWord.length);
   },
 
   analyzeGuess: function(letter) {

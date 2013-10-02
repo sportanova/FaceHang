@@ -1,4 +1,4 @@
-App.Views.Hangman = Backbone.View.extend({
+App.Views.HangmanLetters = Backbone.View.extend({
   initialize: function() {
   },
 
@@ -10,7 +10,10 @@ App.Views.Hangman = Backbone.View.extend({
         return new App.Views.Letter({ model: letter}).render().$el;
       })
     );
-    this.$el.append(new App.Views.GuessLetter().render().$el);
+
+    var guessLetterModel = new App.Models.GuessLetter({ gameWord: this.model });
+
+    this.$el.append(new App.Views.GuessLetter({ model: guessLetterModel }).render().$el);
     return this;
   }
 });

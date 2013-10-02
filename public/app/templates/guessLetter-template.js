@@ -1,1 +1,1 @@
-App.Templates.GuessLetter = '<input type="text" /><div class="submitGuess">Submit Guess</div>';
+App.Templates.GuessLetter = '<input class="inputGuess" type="text" /><div class="submitGuess">Submit Guess</div>';

@@ -19,7 +19,7 @@ App.Routers.AppRouter = Backbone.Router.extend({
     this.$main.html(appView.render().$el);
 
     var hangmanModel = new App.Models.Hangman({ friendsCollection: friendsCollection});
-    var hangmanView = new App.Views.Hangman({ model: hangmanModel});
+    var hangmanView = new App.Views.HangmanLetters({ model: hangmanModel});
 
     friendsCollection.on('friendsPopulated', function() {
       this.$main.append(hangmanView.render().$el);

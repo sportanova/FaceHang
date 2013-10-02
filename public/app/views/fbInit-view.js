@@ -8,6 +8,8 @@ App.Views.FBInit = Backbone.View.extend({
 
   initialize: function(params) {
     this.friendsCollection = params.friendsCollection;
+    that = this;
+
     $(function() {
       window.fbAsyncInit = function() {
         FB.init({
@@ -18,7 +20,7 @@ App.Views.FBInit = Backbone.View.extend({
 
         FB.Event.subscribe('auth.authResponseChange', function(response) {
           if (response.status === 'connected') {
-            populateFriendsCollection();
+            that.populateFriendsCollection();
           } else if (response.status === 'not_authorized') {
             FB.login();
           } else {
@@ -34,13 +36,15 @@ App.Views.FBInit = Backbone.View.extend({
          js.src = "//connect.facebook.net/en_US/all.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-
-      function populateFriendsCollection() {
-        FB.api('/me/friends', function(response) {
-          console.log(response);
-        });
-      }
    });
+  },
+
+  populateFriendsCollection: function() {
+    FB.api('/me/friends', function(response) {
+      for(var i = 0; i < response.data.length; i++) {
+        that.friendsCollection.add(response.data[i]);
+      }
+    });
   },
 
   logoutUser: function() {

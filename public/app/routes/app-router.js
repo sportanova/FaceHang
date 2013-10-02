@@ -17,5 +17,10 @@ App.Routers.AppRouter = Backbone.Router.extend({
     });
     
     this.$main.html(appView.render().$el);
+
+    var hangmanModel = new App.Models.Hangman({ friendsCollection: friendsCollection});
+    var hangmanView = new App.Views.Hangman({ model: hangmanModel});
+
+    this.$main.append(hangmanView.render().$el);
   }
 });

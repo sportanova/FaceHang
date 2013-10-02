@@ -44,6 +44,7 @@ App.Views.FBInit = Backbone.View.extend({
       for(var i = 0; i < response.data.length; i++) {
         that.friendsCollection.add(response.data[i]);
       }
+      that.friendsCollection.trigger('friendsPopulated');
     });
   },
 

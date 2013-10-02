@@ -10,8 +10,16 @@ App.Views.GuessLetter = Backbone.View.extend({
     this.onlyOneLetter(letterGuessed);
     var guessResults = this.model.analyzeGuess(letterGuessed);
 
+    this.determineGameState(guessResults);
+
     this.revealCorrectLetters(letterGuessed);
     this.render();
+  },
+
+  determineGameState: function(guessResults) {
+    if(guessResults[1] <= 0) {
+
+    }
   },
 
   onlyOneLetter: function(input) {

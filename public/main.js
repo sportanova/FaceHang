@@ -3,9 +3,14 @@ window.App = {
   Models : {},
   Views : {},
   Templates : {},
-  Routes : {},
+  Routers : {},
   init: function() {
     _.extend(App, Backbone.events);
+    var router = new App.Routers.AppRouter();
+    Backbone.history.start();
   }
-
 };
+
+$(function() {
+  App.init();
+});

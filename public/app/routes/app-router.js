@@ -1,13 +1,16 @@
-App.Routes.Router = Backbone.Router.extend({
+App.Routers.AppRouter = Backbone.Router.extend({
   routes: {
-    'home': 'home'
+    '': 'home'
   },
 
   initialize: function() {
-    this.$main = $('main');
+    this.$main = $('#main');
   },
 
   home: function() {
-    console.log('this is home');
+    var appModel = new App.Models.AppModel();
+    var appView = new App.Views.AppView({ model: appModel });
+    
+    this.$main.html(appView.render().$el);
   }
 });

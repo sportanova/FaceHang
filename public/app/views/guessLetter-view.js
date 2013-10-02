@@ -17,8 +17,12 @@ App.Views.GuessLetter = Backbone.View.extend({
   },
 
   determineGameState: function(guessResults) {
+    console.log(guessResults);
     if(guessResults[1] <= 0) {
-
+      console.log('you lose');
+      this.model.gameWord.trigger('endGame', 'lose');
+    } else if(guessResults[2] === 0) {
+      console.log('you win');
     }
   },
 

@@ -2,11 +2,22 @@ App.Models.Hangman = Backbone.Model.extend({
   initialize: function(params) {
     this.friendsCollection = params.friendsCollection;
     this.friendsCollection.on('friendsPopulated', this.startGame, this);
+    this.on('endGame', this.newGame, this);
   },
 
   startGame: function() {
     this.pickName();
     this.splitName();
+  },
+
+  newGame: function() {
+    console.log(arguments);
+    if(arguments[0] === 'lose') {
+      alert('you lost');
+    } else {
+      alert('you won');
+    }
+    this.startGame();
   },
 
   pickName: function() {

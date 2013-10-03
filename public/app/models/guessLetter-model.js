@@ -19,7 +19,7 @@ App.Models.GuessLetter = Backbone.Model.extend({
 
     var letters = this.gameWord.letters.models;
     for(var i = 0; i < letters.length; i++) {
-      if(letters[i].get('letter') === letter) {
+      if(letters[i].get('letter').toLowerCase() === letter.toLowerCase()) {
         guessedRight = true;
         lettersLeft = this.get('lettersLeft');
         this.set('lettersLeft', lettersLeft - 1);
@@ -29,6 +29,7 @@ App.Models.GuessLetter = Backbone.Model.extend({
       this.set('guessesLeft', guessesLeft - 1);
       this.gameWord.trigger('addBodyPart');
     }
+
     return [guessedRight, this.get('guessesLeft'), this.get('lettersLeft')];
   }
 });

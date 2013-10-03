@@ -1,13 +1,13 @@
 App.Models.GuessLetter = Backbone.Model.extend({
   initialize: function(params) {
     this.gameWord = params.gameWord;
-    this.set('guessesLeft', 5);
+    this.set('guessesLeft', 6);
     this.set('lettersLeft', this.gameWord.gameWord.length);
     this.gameWord.on('endGame', this.resetGuessAndLetterCount, this);
   },
 
   resetGuessAndLetterCount: function() {
-    this.set('guessesLeft', 5);
+    this.set('guessesLeft', 6);
     this.set('lettersLeft', this.gameWord.gameWord.length);
   },
 
@@ -27,6 +27,7 @@ App.Models.GuessLetter = Backbone.Model.extend({
     }
     if(!guessedRight) {
       this.set('guessesLeft', guessesLeft - 1);
+      this.gameWord.trigger('addBodyPart');
     }
     return [guessedRight, this.get('guessesLeft'), this.get('lettersLeft')];
   }

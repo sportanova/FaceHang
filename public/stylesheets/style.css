@@ -19,3 +19,59 @@ ul li {
 input {
   margin: 20px 0 0 0;
 }
+
+.hangManContainer {
+  position: relative;
+  left: 50%;
+  top: 80px;
+  width: 200px;
+  margin-left: -100px;
+}
+
+.bodyPart {
+  margin: 0 auto;
+  display: none;
+}
+
+.head {
+  width: 30px;
+  height: 30px;
+  border: solid 4px black;
+  border-radius: 10em;
+}
+.back {
+  height: 60px;
+  width: 5px;
+  background: black;
+}
+.arm {
+  height: 30px;
+  width: 5px;
+  background: black;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.leg {
+  height: 38px;
+  width: 5px;
+  background: black;
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  margin-left: -10px;
+}
+
+.left {
+  left: 50%;
+  margin-left: -10px;
+  -webkit-transform: rotate(30deg);
+}
+
+.right {
+  left: 50%;
+  margin-left: 6px;
+  -webkit-transform: rotate(150deg);
+}
